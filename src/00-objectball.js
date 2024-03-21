@@ -25,3 +25,108 @@ function gameObject() {
     };
 }
 console.log(gameObject());
+function numPointsScored(playerName) {
+    for (let player in gameObject().home.players) {
+        if (player === playerName) {
+            return gameObject().home.players[player].points;
+        }
+    }
+
+    for (let player in gameObject().away.players) {
+        if (player === playerName) {
+            return gameObject().away.players[player].points;
+        }
+    }
+
+    return null;
+}
+console.log(numPointsScored('Alan Anderson'));
+function shoeSize(playerName) {
+    for (let player in gameObject().home.players) {
+        if (player === playerName) {
+            return gameObject().home.players[player].shoe;
+        }
+    }
+
+    for (let player in gameObject().away.players) {
+        if (player === playerName) {
+            return gameObject().away.players[player].shoe;
+        }
+    }
+
+    return null;
+}
+console.log(shoeSize('Ben Gordon'));
+
+function teamColors(teamName) {
+    if ( gameObject().home.teamName === teamName) {
+            return gameObject().home.colors;
+        }
+    
+
+    if( gameObject().away.teamName === teamName) {
+            return gameObject().away.colors;
+        }
+        
+
+    return null;
+    }
+
+console.log(teamColors('Charlotte Hornets'))
+
+function playerNumbers(playerName) {
+    for (let player in gameObject().home.players) {
+        if (player === playerName) {
+            return gameObject().home.players[player].number;
+        }
+    }
+
+    for (let player in gameObject().away.players) {
+        if (player === playerName) {
+            return gameObject().away.players[player].number;
+        }
+    }
+
+    return null;
+
+}
+console.log(playerNumbers('Mason Plumlee'));
+
+function playerStats(playerName){
+        for (let player in gameObject().home.players) {
+            if (player === playerName) {
+                return gameObject().home.players[player];
+            }
+        }
+    
+        for (let player in gameObject().away.players) {
+            if (player === playerName) {
+                return gameObject().away.players[player];
+            }
+        }
+    
+        return null;
+    }
+    
+console.log(playerStats('Alan Anderson'));
+function bigShoeRebounds() {
+        let largestShoeSize = 0;
+        let rebounds = 0;
+            for (let player in gameObject().home.players) {
+            const shoeSize = gameObject().home.players[player].shoe;
+            if (shoeSize > largestShoeSize) {
+                largestShoeSize = shoeSize;
+                rebounds = gameObject().home.players[player].rebounds;
+            }
+        }
+    
+        for (let player in gameObject().away.players) {
+            const shoeSize = gameObject().away.players[player].shoe;
+            if (shoeSize > largestShoeSize) {
+                largestShoeSize = shoeSize;
+                rebounds = gameObject().away.players[player].rebounds;
+            }
+        }
+            return rebounds;
+    }
+    console.log(bigShoeRebounds());
